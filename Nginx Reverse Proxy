@@ -1,0 +1,93 @@
+=============================================================================
+Install and configure apache/httpd
+Install and configure nginx - configure it to run as reverse proxy to apache
+
+Webpage should say
+'Hi! i am devops ninja'
+=============================================================================
+
+1. Install and configure apache/httpd
+
+# yum install httpd (install the httpd pkg)
+
+# systemctl restart httpd.service (restart the service)
+
+# vim /var/www/html/ninja.html
+
+|Make a Web Page|
+
+# vim /var/www/html/ninja.html
+[Entry]
+<html>
+<body>
+
+'Hi! i am devops ninja'
+
+</body>
+</html>
+
+wq!
+
+# vim /etc/httpd/conf/httpd.conf
+[Entry]
+
+Listen *:8080
+NameVirtualHost *:8080
+
+wq!
+
+# systemctl restart httpd.service (restart the service)
+
+Install the NGINX
+
+# yum install nginx
+
+# vim /etc/nginx/nginx.conf
+[Entry]
+
+server {
+        listen       80;
+        listen       [::]:80 default_server;
+        server_name  ninja.opstree.com;
+        root         /var/www/html;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+        proxy_pass ninja.opstree.com;
+        location / {
+        }
+
+#systemctl restart nginx.service
+
+**********************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

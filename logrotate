@@ -1,0 +1,29 @@
+
+=============================================================
+Install logrotate and rotate tomcat's catalina.out log as:
+
+rotate the log file after 500kb
+keep only last 5 files
+=============================================================
+
+Logrotate is a system utility that manages the automatic rotation and compression of log files. If log files were not rotated, compressed, and periodically pruned, they could eventually consume all available disk space on a system.
+
+
+Step 1.
+
+# vim /etc/logrotate.d/tomcat
+
+[Entry]
+
+/var/log/tomcat8.log {
+    missingok
+    notifempty
+    size 500k
+    create 0600 root root
+    rotate 5
+}
+
+*******************************************************************************************
+
+
+

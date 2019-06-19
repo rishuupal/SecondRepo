@@ -1,0 +1,12 @@
+==============================================================================
+Install 'build essentials' (mention in doc that why do we need it )
+==============================================================================
+
+The build-essential software contains an informational list of software's which are treated as important for building Debian packages including gcc compiler, make and other needed tools
+
+
+
+Install Build essensial
+
+# apt-get update
+# apt-get install build-essential

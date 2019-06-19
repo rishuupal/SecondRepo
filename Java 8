@@ -1,0 +1,25 @@
+=============================================================================
+Install java version 8 with home directory set as an environment variable
+=============================================================================
+
+1. Update and install 
+
+# sudo apt-get update
+# sudo apt-get install openjdk-8-jdk
+# java -version
+
+
+
+Set Java Home Environment
+
+
+1. To set the variable for your system
+# echo "JAVA_HOME=$(which java)" | sudo tee -a /etc/environment
+
+2. Reload your system’s environment variables:
+# source /etc/environment
+
+3. Verify the variable was set correctly:
+# echo $JAVA_HOME
+
+

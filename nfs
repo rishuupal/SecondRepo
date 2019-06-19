@@ -1,0 +1,66 @@
+========================================================================
+Make a directory as '/ninja' having one file inside with name 'devops' and share it via nfs & then mount the same on '/mnt'
+========================================================================
+
+Make a directory 
+# mkdir /ninja
+
+Install the NFS 
+# yum install nfs-utils
+
+
+Enable and start the nfs server service
+
+# systemctl enable nfs-server.service
+# systemctl start nfs-server.service
+
+
+
+Open File
+
+#vi /etc/exports
+
+[Entry]
+
+/mnt/rishi      *(rw)
+/mnt/ninja      192.168.0.95(ro)
+
+:wq!
+
+# systemctl restart nfs.service
+
+# exportfs -vf
+
+# exportfs
+
+
+==============
+Client Side
+==============
+
+#apt-get install nfs-common
+
+# showmount -e 
+
+# showmount -e 192.168.0.44
+
+
+**********************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
